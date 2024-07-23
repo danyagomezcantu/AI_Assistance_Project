@@ -1,64 +1,77 @@
-import cv2
-# import numpy as np
+import numpy as np
+import trimesh
+from sklearn.decomposition import PCA
 
-# Load an image from file
-image = cv2.imread('C:/Users/Danya/Downloads/D1web-12.jpg')  # Replace 'path_to_your_image.jpg' with the path to your
-# image file
 
-# Check if the image was loaded successfully
-if image is None:
-    print("Error: Could not load image")
-    exit()
+def load_stl(file_path):
+    mesh = trimesh.load(file_path)
+    points = mesh.vertices
+    return points, mesh
 
-# Display the original image
-cv2.imshow('Original Image', image)
 
-# Convert the image to grayscale
-gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-cv2.imshow('Grayscale Image', gray_image)
+def apply_pca(points):
+    pca = PCA(n_components=3)
+    pca.fit(points)
+    return pca
 
-# Perform edge detection using the Canny method
-edges = cv2.Canny(gray_image, 100, 200)
-cv2.imshow('Edges', edges)
 
-# Wait for a key press and close the image windows
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+def align_with_axis(points, pca):
+    # The PCA components
+    components = pca.components_
+    # Assuming the first component is the longest axis
+    main_axis = components[0]
 
-"""
-import cv2
-import dlib
+    # Determine the rotation to align with the Y axis
+    target_axis = np.array([0, 1, 0])
 
-# Load the pre-trained face detector and facial landmarks predictor
-face_detector = dlib.get_frontal_face_detector()
-landmark_predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')  # Download from dlib's website
+    # Compute rotation matrix
+    rot_matrix = rotation_matrix_from_vectors(main_axis, target_axis)
 
-# Load an image from file
-image = cv2.imread('path_to_your_image.jpg')  # Replace with the path to your image file
+    # Apply rotation
+    aligned_points = np.dot(points - pca.mean_, rot_matrix.T) + pca.mean_
 
-# Convert to grayscale
-gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    return aligned_points
 
-# Detect faces in the image
-faces = face_detector(gray_image)
 
-# Loop over each detected face
-for face in faces:
-    x, y, w, h = (face.left(), face.top(), face.width(), face.height())
-    cv2.rectangle(image, (x, y), (x + w, y + h), (0, 255, 0), 2)  # Draw rectangle around the face
-    
-    # Predict facial landmarks
-    landmarks = landmark_predictor(gray_image, face)
-    
-    # Loop over each landmark point
-    for n in range(0, 68):
-        x = landmarks.part(n).x
-        y = landmarks.part(n).y
-        cv2.circle(image, (x, y), 2, (255, 0, 0), -1)  # Draw a circle for each landmark point
+def rotation_matrix_from_vectors(vec1, vec2):
+    """ Find the rotation matrix that aligns vec1 to vec2
+    :param vec1: A 3d "source" vector
+    :param vec2: A 3d "destination" vector
+    :return mat: A transform matrix (3x3)
+    """
+    a, b = (vec1 / np.linalg.norm(vec1)).reshape(3), (vec2 / np.linalg.norm(vec2)).reshape(3)
+    v = np.cross(a, b)
+    c = np.dot(a, b)
+    s = np.linalg.norm(v)
+    kmat = np.array([[0, -v[2], v[1]],
+                     [v[2], 0, -v[0]],
+                     [-v[1], v[0], 0]])
+    rotation_matrix = np.eye(3) + kmat + kmat.dot(kmat) * ((1 - c) / (s ** 2))
+    return rotation_matrix
 
-# Display the output
-cv2.imshow('Facial Landmarks', image)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
 
-"""
+def move_center_to_origin(points):
+    bbox_min = np.min(points, axis=0)
+    bbox_max = np.max(points, axis=0)
+    bbox_center = (bbox_max + bbox_min) / 2.0
+    centered_points = points - bbox_center
+    return centered_points
+
+
+def save_aligned_stl(points, mesh, file_path):
+    mesh.vertices = points
+    mesh.export(file_path)
+
+
+def process_file(file_path, output_path):
+    points, mesh = load_stl(file_path)
+    pca = apply_pca(points)
+    aligned_points = align_with_axis(points, pca)
+    centered_points = move_center_to_origin(aligned_points)
+    save_aligned_stl(centered_points, mesh, output_path)
+
+
+# Example usage
+input_file = "C:/Users/Danya/Downloads/KI_Test/12413.12.22.stl"
+output_file = "C:/Users/Danya/Downloads/KI_Test/12413.12.22.0036.stl"
+process_file(input_file, output_file)

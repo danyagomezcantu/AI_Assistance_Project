@@ -2,6 +2,7 @@ import os
 import shutil
 from pathlib import Path
 
+
 def extract_info(file):
     """
     Extracts the original ID, month, and year from the filename.

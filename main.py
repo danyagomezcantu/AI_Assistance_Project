@@ -1,7 +1,7 @@
 from file_processing import *
 from file_organizing import *
 
-# Define the paths
+# To use this script, define the paths where your files are
 original_folder = Path("C:/Users/Danya/Downloads/KI-Assistenz/KI-Assistenz_Datenbank_Initial")
 processed_folder = Path("C:/Users/Danya/Downloads/KI-Assistenz/KI-Assistenz_Datenbank_Processed")
 

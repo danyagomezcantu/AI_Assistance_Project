@@ -1,21 +1,23 @@
+import dlib
+import cv2
 import numpy as np
+from scipy.spatial.transform import Rotation as R
 import trimesh
-from sklearn.decomposition import PCA
+
+# Load the pre-trained facial landmark detector
+detector = dlib.get_frontal_face_detector()
+predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 
 
 def load_stl(file_path):
     """
-    Loads an STL file and extracts the mesh vertices.
+    Loads an STL file and extracts the points and mesh.
 
     Parameters:
     file_path (Path or str): The path to the STL file.
 
     Returns:
-    tuple: A tuple containing the points (vertices) of the mesh and the mesh object itself.
-
-    Explanation:
-    - Uses the `trimesh` library to load the STL file.
-    - Extracts the vertices (points) from the mesh.
+    tuple: A tuple containing the points (ndarray) and the mesh (trimesh.Trimesh).
     """
     mesh = trimesh.load(file_path)
     points = mesh.vertices
@@ -24,19 +26,15 @@ def load_stl(file_path):
 
 def apply_pca(points):
     """
-    Applies Principal Component Analysis (PCA) to the points.
+    Applies PCA to the points to find the main axes of variation.
 
     Parameters:
-    points (ndarray): The vertices of the mesh.
+    points (ndarray): The points of the mesh.
 
     Returns:
-    PCA: The fitted PCA object.
-
-    Explanation:
-    - PCA is used to identify the main axes of variation in the data.
-    - The `sklearn.decomposition.PCA` class is used to perform PCA.
-    - The number of components is set to 3 to match the 3D nature of the points.
+    PCA: The PCA object after fitting the points.
     """
+    from sklearn.decomposition import PCA
     pca = PCA(n_components=3)
     pca.fit(points)
     return pca
@@ -44,61 +42,17 @@ def apply_pca(points):
 
 def align_with_axis(points, pca):
     """
-    Aligns the points with a specified axis using the PCA components.
+    Aligns the points with the Y-axis based on PCA.
 
     Parameters:
-    points (ndarray): The vertices of the mesh.
-    pca (PCA): The fitted PCA object.
+    points (ndarray): The points of the mesh.
+    pca (PCA): The PCA object after fitting the points.
 
     Returns:
     ndarray: The aligned points.
-
-    Explanation:
-    - The first principal component (main axis) is aligned with the Y-axis.
-    - A rotation matrix is computed to align the main axis with the target axis.
-    - The points are rotated using this rotation matrix.
     """
-    components = pca.components_
-    main_axis = components[0]
-    target_axis = np.array([0, 1, 0])  # Align with Y-axis
-    rot_matrix = rotation_matrix_from_vectors(main_axis, target_axis)
-    aligned_points = np.dot(points - pca.mean_, rot_matrix.T) + pca.mean_
+    aligned_points = np.dot(points - pca.mean_, pca.components_.T)
     return aligned_points
-
-
-def rotation_matrix_from_vectors(vec1, vec2):
-    """
-    Computes the rotation matrix that aligns vec1 to vec2.
-
-    Parameters:
-    vec1 (ndarray): The source vector.
-    vec2 (ndarray): The target vector.
-
-    Returns:
-    ndarray: The rotation matrix.
-
-    Explanation:
-    - Uses the cross product to find the axis of rotation.
-    - Uses the dot product to find the cosine of the angle of rotation.
-    - Constructs the rotation matrix using the Rodrigues' rotation formula.
-    """
-    """
-    Rodrigues' rotation formula is a method for rotating a vector in three-dimensional space. It provides a way to compute the rotation matrix given an axis of rotation and an angle. The formula is particularly useful for converting between axis-angle representation and rotation matrices.  Given a unit vector k (the axis of rotation) and an angle θ (the angle of rotation), the rotation matrix R can be computed as:  [ R = I + \sin(\theta) \cdot K + (1 - \cos(\theta)) \cdot K^2 ]  where:  
-    I is the identity matrix.
-    K is the skew-symmetric matrix of k: [ K = \begin{bmatrix} 0 & -k_z & k_y \ k_z & 0 & -k_x \ -k_y & k_x & 0 \end{bmatrix} ]
-    In this context:  
-    k_x, k_y, and k_z are the components of the unit vector k.
-    K^2 is the matrix multiplication of K with itself.
-    The formula effectively combines the identity matrix, the skew-symmetric matrix, and the squared skew-symmetric matrix to produce the rotation matrix. This matrix can then be used to rotate any vector around the axis k by the angle θ.
-    """
-
-    a, b = (vec1 / np.linalg.norm(vec1)).reshape(3), (vec2 / np.linalg.norm(vec2)).reshape(3)
-    v = np.cross(a, b)
-    c = np.dot(a, b)
-    s = np.linalg.norm(v)
-    kmat = np.array([[0, -v[2], v[1]], [v[2], 0, -v[0]], [-v[1], v[0], 0]])
-    rotation_matrix = np.eye(3) + kmat + kmat.dot(kmat) * ((1 - c) / (s ** 2))
-    return rotation_matrix
 
 
 def move_center_to_origin(points):
@@ -106,21 +60,100 @@ def move_center_to_origin(points):
     Moves the center of the points to the origin.
 
     Parameters:
-    points (ndarray): The vertices of the mesh.
+    points (ndarray): The points of the mesh.
 
     Returns:
     ndarray: The centered points.
-
-    Explanation:
-    - Computes the bounding box of the points.
-    - Finds the center of the bounding box.
-    - Translates the points so that the center is at the origin.
     """
-    bbox_min = np.min(points, axis=0)
-    bbox_max = np.max(points, axis=0)
-    bbox_center = (bbox_max + bbox_min) / 2.0
-    centered_points = points - bbox_center
+    center = np.mean(points, axis=0)
+    centered_points = points - center
     return centered_points
+
+
+def detect_landmarks(image):
+    """
+    Detects facial landmarks in the given image.
+
+    Parameters:
+    image (ndarray): The input image.
+
+    Returns:
+    list: A list of tuples containing the coordinates of the facial landmarks.
+    """
+    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+    faces = detector(gray)
+    if len(faces) == 0:
+        return None
+
+    landmarks = []
+    for face in faces:
+        shape = predictor(gray, face)
+        for i in range(0, 68):
+            landmarks.append((shape.part(i).x, shape.part(i).y))
+    return landmarks
+
+
+def is_upside_down(landmarks):
+    """
+    Determines if the face is upside down based on the landmarks.
+
+    Parameters:
+    landmarks (list): A list of tuples containing the coordinates of the facial landmarks.
+
+    Returns:
+    bool: True if the face is upside down, False otherwise.
+    """
+    left_eye = np.mean(landmarks[36:42], axis=0)
+    right_eye = np.mean(landmarks[42:48], axis=0)
+    mouth = np.mean(landmarks[48:68], axis=0)
+
+    return mouth[1] < (left_eye[1] + right_eye[1]) / 2
+
+
+def rotate_mesh(points, angle):
+    """
+    Rotates the mesh points by the given angle.
+
+    Parameters:
+    points (ndarray): The mesh points.
+    angle (float): The angle to rotate the mesh.
+
+    Returns:
+    ndarray: The rotated mesh points.
+    """
+    rotation_matrix = R.from_euler('z', angle, degrees=True).as_matrix()
+    return np.dot(points, rotation_matrix.T)
+
+
+def mesh_to_image(mesh):
+    """
+    Converts a 3D mesh to a 2D image for landmark detection.
+
+    Parameters:
+    mesh (trimesh.Trimesh): The mesh object.
+
+    Returns:
+    ndarray: The 2D image of the mesh.
+    """
+    # This function needs to be implemented based on your specific requirements
+    pass
+
+
+def correct_orientation(points, image):
+    """
+    Corrects the orientation of the face in the mesh if it is upside down.
+
+    Parameters:
+    points (ndarray): The mesh points.
+    image (ndarray): The 2D image of the mesh.
+
+    Returns:
+    ndarray: The corrected mesh points.
+    """
+    landmarks = detect_landmarks(image)
+    if landmarks and is_upside_down(landmarks):
+        points = rotate_mesh(points, 180)
+    return points
 
 
 def save_aligned_stl(points, mesh, file_path):
@@ -153,10 +186,16 @@ def process_file(input_path, output_path):
     - Applies PCA to find the main axes of variation.
     - Aligns the points with the Y-axis.
     - Moves the center of the points to the origin.
+    - Corrects the orientation of the face.
     - Saves the processed points back to an STL file.
     """
     points, mesh = load_stl(input_path)
     pca = apply_pca(points)
     aligned_points = align_with_axis(points, pca)
     centered_points = move_center_to_origin(aligned_points)
-    save_aligned_stl(centered_points, mesh, output_path)
+
+    # Convert mesh to 2D image for landmark detection
+    image = mesh_to_image(mesh)
+    corrected_points = correct_orientation(centered_points, image)
+
+    save_aligned_stl(corrected_points, mesh, output_path)

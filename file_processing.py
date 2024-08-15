@@ -3,6 +3,8 @@ import cv2
 import numpy as np
 from scipy.spatial.transform import Rotation as R
 import trimesh
+import pymeshlab
+
 
 # Load the pre-trained facial landmark detector
 detector = dlib.get_frontal_face_detector()
@@ -173,13 +175,36 @@ def save_aligned_stl(points, mesh, file_path):
     mesh.export(file_path)
 
 
-def process_file(input_path, output_path):
+def remesh(mesh, target_edge_length):
     """
-    Processes an STL file by loading, aligning, centering, and saving it.
+    Remesh the mesh to have a more uniform resolution.
+
+    Parameters:
+    mesh (trimesh.Trimesh): The mesh object.
+    target_edge_length (float): The target edge length for remeshing.
+
+    Returns:
+    trimesh.Trimesh: The remeshed object.
+    """
+    # Create a MeshSet object
+    ms = pymeshlab.MeshSet()
+    # Add the mesh to the MeshSet
+    ms.add_mesh(pymeshlab.Mesh(mesh.vertices, mesh.faces))
+    # Apply remeshing with a target edge length
+    ms.meshing_isotropic_explicit_remeshing(targetlen=target_edge_length)
+    # Retrieve the remeshed mesh
+    remeshed_mesh = ms.current_mesh()
+    return trimesh.Trimesh(vertices=remeshed_mesh.vertex_matrix(), faces=remeshed_mesh.face_matrix())
+
+
+def process_file(input_path, output_path, target_edge_length=1.0):
+    """
+    Processes an STL file by loading, aligning, centering, remeshing, and saving it.
 
     Parameters:
     input_path (Path or str): The path to the input STL file.
     output_path (Path or str): The path to save the processed STL file.
+    target_edge_length (float): The target edge length for remeshing.
 
     Explanation:
     - Loads the STL file and extracts the points.
@@ -187,6 +212,7 @@ def process_file(input_path, output_path):
     - Aligns the points with the Y-axis.
     - Moves the center of the points to the origin.
     - Corrects the orientation of the face.
+    - Remeshes the mesh to have a more uniform resolution.
     - Saves the processed points back to an STL file.
     """
     points, mesh = load_stl(input_path)
@@ -198,4 +224,7 @@ def process_file(input_path, output_path):
     image = mesh_to_image(mesh)
     corrected_points = correct_orientation(centered_points, image)
 
-    save_aligned_stl(corrected_points, mesh, output_path)
+    # Remesh the mesh
+    remeshed_mesh = remesh(mesh, target_edge_length)
+
+    save_aligned_stl(remeshed_mesh.vertices, remeshed_mesh, output_path)

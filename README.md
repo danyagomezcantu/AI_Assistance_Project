@@ -5,8 +5,6 @@ This repository holds the code and anonymized results of my undergraduate thesis
 > **Deep-learning design of moulds for custom CPAP masks from 3D facial scans: prototype and viability evaluation**
 > (Spanish title: *Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D: prototipo y evaluación de viabilidad*)
 
-### Note: All previous work from 2024 and 2025 is stored in the legacy-2024-2025 Branch,
-
 The method works in two stages. A 3D U-Net predicts the positive mould of a custom mask from the patient's face scan. That mould is then turned into a printable template.
 
 The work started as part of the ZIM project **KI-Assistenz** at TH Köln, together with AirTec Beatmungshilfen, which makes custom ventilation masks. The data are anonymized face scans and the moulds that AirTec's technicians made for those patients. **No patient geometry is in this repository.**

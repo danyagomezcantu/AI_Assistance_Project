@@ -3,7 +3,7 @@
 This repository holds the code and anonymized results of my undergraduate thesis (*tesina*, Computer Engineering, ITAM, 2026):
 
 > **Deep-learning design of moulds for custom CPAP masks from 3D facial scans: prototype and viability evaluation**
-> (Spanish title: *Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D: prototipo y evaluación de viabilidad*)
+> (Spanish title: *Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D*)
 
 The method works in two stages. A 3D U-Net predicts the positive mould of a custom mask from the patient's face scan. That mould is then turned into a printable template.
 

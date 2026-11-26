@@ -79,8 +79,6 @@ Patients appear under two IDs:
   python prueba_humo_sintetica.py --dir humo --grid 16 --pairs 20 --epochs 3
   ```
 
-The step-by-step guide in Spanish is [`README_guia_paso_a_paso.md`](README_guia_paso_a_paso.md).
-
 ## Reproducibility
 
 * **Seeds:** folds 42, training 1234, sampling and evaluation 0.
@@ -98,7 +96,6 @@ tesina/                           Python package: one module per stage
 prueba_humo_sintetica.py          end-to-end smoke test on synthetic data
 figuras_tesina.py                 thesis figures from the results pack
 requirements.txt
-README_guia_paso_a_paso.md        step-by-step guide (Spanish)
 results/
   resultados_tesina_G64_2026-11-25/   anonymized results pack from P8
   anexo/trazabilidad_368_pacientes.csv

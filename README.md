@@ -2,8 +2,8 @@
 
 This repository holds the code and anonymized results of my undergraduate thesis (*tesina*, Computer Engineering, ITAM, 2026):
 
-> \*\*Deep-learning design of moulds for custom CPAP masks from 3D facial scans: prototype and viability evaluation\*\*
-> (Spanish title: \*Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D: prototipo y evaluación de viabilidad\*)
+> **Deep-learning design of moulds for custom CPAP masks from 3D facial scans: prototype and viability evaluation**
+> (Spanish title: *Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D: prototipo y evaluación de viabilidad*)
 
 ### Note: All previous work from 2024 and 2025 is stored in the legacy-2024-2025 Branch,
 
@@ -15,7 +15,7 @@ _**Note: All previous work from 2024 and 2025 is stored in the "legacy-2024-2025
 
 ## Pipeline
 
-The Colab notebook `cuaderno\_principal\_tesina.ipynb` runs one step per section. Every step saves its output to Google Drive and skips work that is already done, so a step can be re-run or resumed after a disconnection.
+The Colab notebook `cuaderno_principal_tesina.ipynb` runs one step per section. Every step saves its output to Google Drive and skips work that is already done, so a step can be re-run or resumed after a disconnection.
 
 |Step|What it does|
 |-|-|
@@ -61,27 +61,27 @@ Patients appear under two IDs:
 * AirTec's five-digit code (for example `00617`), which is already a pseudonym.
 * A thesis ID, `P001`–`P223`, which numbers the cohort in ascending order of AirTec code.
 
-[`results/anexo/trazabilidad\_368\_pacientes.csv`](results/anexo/trazabilidad_368_pacientes.csv) lists all 368 patients with both IDs, their fold, whether the mould is closed, the registration check, the reason for exclusion (if any) and the C0 metrics.
+[`results/anexo/trazabilidad_368_pacientes.csv`](results/anexo/trazabilidad_368_pacientes.csv) lists all 368 patients with both IDs, their fold, whether the mould is closed, the registration check, the reason for exclusion (if any) and the C0 metrics.
 
 ## Running it
 
 **In Google Colab, with the data:**
 
 1. Put the dataset (`1. Training`, as a folder or a ZIP) in your Google Drive.
-2. Make the code available in one of two ways. You can set `GIT\_URL` in the notebook's first cell to this repository's URL, and P0 clones it. Or you can zip the `tesina/` folder, together with `requirements.txt`, into `tesina.zip` and put it at the path in `ZIP\_CODIGO`.
-3. Open `cuaderno\_principal\_tesina.ipynb` and edit the first cell (paths, `G`, `EPOCAS`). Then run P0 to P9 in order.
+2. Make the code available in one of two ways. You can set `GIT_URL` in the notebook's first cell to this repository's URL, and P0 clones it. Or you can zip the `tesina/` folder, together with `requirements.txt`, into `tesina.zip` and put it at the path in `ZIP_CODIGO`.
+3. Open `cuaderno_principal_tesina.ipynb` and edit the first cell (paths, `G`, `EPOCAS`). Then run P0 to P9 in order.
 4. P1–P4 run on CPU. P5–P6 need a GPU; a T4 is enough (about 4 s per epoch at 64³).
 
 **Without the data:**
 
-* Set `MODO\_SINTETICO = True` in the notebook. It runs P0–P9 on synthetic data.
+* Set `MODO_SINTETICO = True` in the notebook. It runs P0–P9 on synthetic data.
 * Or run the smoke test locally:
 
 ```
-  python prueba\_humo\_sintetica.py --dir humo --grid 16 --pairs 20 --epochs 3
+  python prueba_humo_sintetica.py --dir humo --grid 16 --pairs 20 --epochs 3
   ```
 
-The step-by-step guide in Spanish is [`README\_guia\_paso\_a\_paso.md`](README_guia_paso_a_paso.md).
+The step-by-step guide in Spanish is [`README_guia_paso_a_paso.md`](README_guia_paso_a_paso.md).
 
 ## Reproducibility
 
@@ -89,21 +89,21 @@ The step-by-step guide in Spanish is [`README\_guia\_paso\_a\_paso.md`](README_g
 * **Saved with every run:** `config.json` and `entorno.json` (library versions and GPU).
 * **Rules fixed in advance.** The exclusion rule (P3b) was fixed before the reference methods were evaluated. The code refuses to change training settings once a fold has started, and refuses to change exclusions after P4.
 * **Log.** Every step writes a timestamped log (*bitácora*) to Drive: what ran, with which settings, how long it took, and any warning or error. The log contains patient IDs and Drive paths, so it is not published.
-* **Versions.** The results come from versions 1.3.3 to 1.3.6 of the `tesina` package. These versions differ only operationally (memory handling, messages, the P3b step), not in geometry, model or metrics. The tag `v1.3.6` marks the code at the end of the run. The changelog is in `tesina/\_\_init\_\_.py`.
+* **Versions.** The results come from versions 1.3.3 to 1.3.6 of the `tesina` package. These versions differ only operationally (memory handling, messages, the P3b step), not in geometry, model or metrics. The tag `v1.3.6` marks the code at the end of the run. The changelog is in `tesina/__init__.py`.
 * **Determinism.** B1, B2 and all metrics are deterministic for the same data. GPU training can vary slightly between runs even with fixed seeds.
 
 ## Layout
 
 ```
-cuaderno\_principal\_tesina.ipynb   Colab notebook, P0–P9 (published without outputs)
+cuaderno_principal_tesina.ipynb   Colab notebook, P0–P9 (published without outputs)
 tesina/                           Python package: one module per stage
-prueba\_humo\_sintetica.py          end-to-end smoke test on synthetic data
-figuras\_tesina.py                 thesis figures from the results pack
+prueba_humo_sintetica.py          end-to-end smoke test on synthetic data
+figuras_tesina.py                 thesis figures from the results pack
 requirements.txt
-README\_guia\_paso\_a\_paso.md        step-by-step guide (Spanish)
+README_guia_paso_a_paso.md        step-by-step guide (Spanish)
 results/
-  resultados\_tesina\_G64\_2026-11-25/   anonymized results pack from P8
-  anexo/trazabilidad\_368\_pacientes.csv
+  resultados_tesina_G64_2026-11-25/   anonymized results pack from P8
+  anexo/trazabilidad_368_pacientes.csv
 ```
 
 The code, comments, notebook and logs are in Spanish, like the thesis.
@@ -115,7 +115,7 @@ The code, comments, notebook and logs are in Spanish, like the thesis.
 
 ## Citation
 
-Gómez Cantú, D. C. (2026). *Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D: prototipo y evaluación de viabilidad* \[Tesina de licenciatura]. Instituto Tecnológico Autónomo de México.
+Gómez Cantú, D. C. (2026). *Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D: prototipo y evaluación de viabilidad* [Tesina de licenciatura]. Instituto Tecnológico Autónomo de México.
 
 ## Acknowledgements
 

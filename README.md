@@ -1,58 +1,125 @@
-# ZIM - KI Assistenz Project
+# Custom CPAP mask moulds from 3D face scans
 
-## AI-Based Assistance System for Manufacturing Custom Ventilation Masks
+This repository holds the code and anonymized results of my undergraduate thesis (*tesina*, Computer Engineering, ITAM, 2026):
 
-This repository contains the code and documentation for the ZIM - KI Assistenz project, a collaborative initiative between the University of Applied Sciences Cologne (TH Köln) and local SMEs in North Rhine-Westphalia (NRW). The project aims to modernize and optimize the manufacturing process of custom-made ventilation masks using artificial intelligence (AI) and advanced technologies. The primary goal is to reduce production time and costs while maintaining the unique customization required for each mask.
+> \*\*Deep-learning design of moulds for custom CPAP masks from 3D facial scans: prototype and viability evaluation\*\*
+> (Spanish title: \*Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D: prototipo y evaluación de viabilidad\*)
 
-## Key Objectives
-- Develop an AI-based assistance and feedback system for the production of custom ventilation masks.
-- Integrate AI and Big Data to automate feature extraction from 3D scans.
-- Improve efficiency and reduce costs in the manufacturing process without disrupting existing workflows.
+### Note: All previous work from 2024 and 2025 is stored in the legacy-2024-2025 Branch,
 
-## Methodology
+The method works in two stages. A 3D U-Net predicts the positive mould of a custom mask from the patient's face scan. That mould is then turned into a printable template.
 
-### Data Preparation and Normalization
+The work started as part of the ZIM project **KI-Assistenz** at TH Köln, together with AirTec Beatmungshilfen, which makes custom ventilation masks. The data are anonymized face scans and the moulds that AirTec's technicians made for those patients. **No patient geometry is in this repository.**
 
-#### Tool Familiarization
-- **Cloud Compare**: Download and use Cloud Compare for managing point cloud files.
-- **OpenCV**: Utilize facial recognition libraries in OpenCV, focusing on detecting facial profiles and specific features like the nose.
+_**Note: All previous work from 2024 and 2025 is stored in the "legacy-2024-2025" branch.**_
 
-#### Facial Region Delimitation
-- Delimit the facial region from the nose to the chin (the anatomical boundary) and use this to scale facial masks appropriately.
+## Pipeline
 
-### Handling Point Clouds
+The Colab notebook `cuaderno\_principal\_tesina.ipynb` runs one step per section. Every step saves its output to Google Drive and skips work that is already done, so a step can be re-run or resumed after a disconnection.
 
-#### Point Cloud Management
-- Work with both dense (high-resolution) and light (low-resolution) point clouds.
-- Use the octree-based method to divide the 3D space into small cubes and normalize the scan coordinates to determine occupied cubes.
+|Step|What it does|
+|-|-|
+|P0|Mounts Drive, loads the code, copies only the face and mould STL files to the VM's local disk, and builds the configuration.|
+|P1|Indexes face–mould pairs and assigns each patient to one of 5 folds (seed 42).|
+|P2|Runs checks A1 (mould-to-face registration) and A3 (solid voxelization) on a sample of patients.|
+|P3|Orients each face (PCA plus an anatomical sign rule), registers the mould to the face (rigid ICP), and voxelizes both on a shared 64³ grid.|
+|P3b|Excludes open moulds and pairs that fail A1. The rule was fixed before any results were seen.|
+|P4|Builds the two reference methods and the evaluation path. **B1** gives every patient the same average mould of the training fold. **B2** reuses the mould of the training patient whose face is most similar.|
+|P5|Smoke test of the full path at 16³.|
+|P6|Trains the 3D U-Net (C0) for each fold, with early stopping on an inner validation split.|
+|P7|Evaluates C0 against B1 and B2: Dice, IoU, and Chamfer and HD95 distances by region, with paired Wilcoxon tests and Holm correction.|
+|P7b|Compares mesh smoothing on the same predictions (Taubin, none, Laplacian).|
+|P8|Derives the templates, draws illustrative cases and writes the anonymized results pack.|
+|P9|Integrated prototype: one face STL in, one mould STL and one template STL out.|
 
-#### Scale Adjustment and Normalization
-- Manipulate scales and adjust dimensions using real-world data, applying PCA to identify the longest axis for alignment.
+## Results
 
-### Algorithm Development
+Run of 25 Nov 2026 on a Tesla T4, n = 223 patients, 5-fold cross-validation. Each patient is tested once by a model that never saw them. Values are medians.
 
-#### Feature Detection and Delimitation
-- Develop algorithms to detect and delimit facial features.
-- Implement techniques to handle and normalize point clouds using octrees.
+|Method|Dice|Chamfer, front (mm)|Chamfer, total (mm)|HD95, total (mm)|
+|-|-|-|-|-|
+|C0 (3D U-Net)|0.865|1.81|3.24|9.51|
+|B2 (mould of the most similar face)|0.770|3.69|5.22|13.34|
+|B1 (average mould)|0.749|5.21|5.90|14.90|
 
-#### Scan Alignment
-- Align facial scans based on PCA and the overall height of the face.
-- Propose aligning specifically the regions covered by the mask (nasal, perioral, and chin areas) using the nasolabial angle and mapping points of nasal wings and mouth corners to create a subnasal-perioral trapezoid.
+* On the front of the mould, C0 is closer to AirTec's mould than B2 for 99.1 % of patients, and closer than B1 for all of them.
+* All 16 paired comparisons are significant after Holm correction (p ≤ 1.8 × 10⁻¹⁹).
+* Training took 0.31 GPU-hours.
+* The prototype turns a face scan into a mould and a template in a median of 1.96 s (0.81 s without loading the model).
+* All 223 templates are closed meshes.
 
-## Technical Concepts and Definitions
+The full tables, per-patient metrics, statistics, configuration and environment are in [`results/`](results/).
 
-- **ZIM (Zentrales Innovationsprogramm Mittelstand)**: A funding program by the German government to support SMEs in innovation.
-- **Artificial Intelligence (AI)**: The simulation of human intelligence in machines that are programmed to think and learn.
-- **Neural Networks**: A set of algorithms modeled after the human brain, designed to recognize patterns and interpret data.
-- **Data Normalization**: The process of organizing data to meet certain standards and formats, making it suitable for analysis by neural networks.
-- **Point Cloud**: A collection of data points in space, often produced by 3D scanners, representing the external surface of an object.
-- **Cloud Compare**: An open-source software for 3D point cloud and mesh processing.
-- **OpenCV**: An open-source computer vision and machine learning software library.
-- **Octree**: A tree structure used to partition a three-dimensional space by recursively subdividing it into eight octants.
-- **Principal Component Analysis (PCA)**: A statistical technique used to emphasize variation and bring out strong patterns in a dataset, often used to reduce the dimensionality of data.
-- **Nasolabial Angle**: The angle formed between the nose and the upper lip, significant in facial feature alignment.
-- **Industry 4.0**: The ongoing automation of traditional manufacturing and industrial practices using modern smart technology.
+### Cohort
 
-## References
-- TH Köln. (n.d.). KI-Assistenz – Assistenz- und Feedbacksystem auf Basis von Big Data und künstlicher Intelligenz zur Vorbereitung des Fertigungsprozesses von individuellen Beatmungsmasken auf Fertigung 4.0. Retrieved from: https://www.th-koeln.de/anlagen-energie-und-maschinensysteme/ki-assistenz_110308.php
-- AirTec Beatmungshilfen GmbH & Co. KG. (n.d.). Willkommen bei AirTec Beatmungshilfen GmbH & Co. KG. Retrieved from: https://airtec-beatmungshilfen.de/
+The file repository has 368 patients with a face scan and a mould. One mould file is damaged in the archive, which leaves 367 pairs. Of those, 263 moulds are closed meshes, and 223 of them pass the registration check A1.
+
+### Patient IDs
+
+Patients appear under two IDs:
+
+* AirTec's five-digit code (for example `00617`), which is already a pseudonym.
+* A thesis ID, `P001`–`P223`, which numbers the cohort in ascending order of AirTec code.
+
+[`results/anexo/trazabilidad\_368\_pacientes.csv`](results/anexo/trazabilidad_368_pacientes.csv) lists all 368 patients with both IDs, their fold, whether the mould is closed, the registration check, the reason for exclusion (if any) and the C0 metrics.
+
+## Running it
+
+**In Google Colab, with the data:**
+
+1. Put the dataset (`1. Training`, as a folder or a ZIP) in your Google Drive.
+2. Make the code available in one of two ways. You can set `GIT\_URL` in the notebook's first cell to this repository's URL, and P0 clones it. Or you can zip the `tesina/` folder, together with `requirements.txt`, into `tesina.zip` and put it at the path in `ZIP\_CODIGO`.
+3. Open `cuaderno\_principal\_tesina.ipynb` and edit the first cell (paths, `G`, `EPOCAS`). Then run P0 to P9 in order.
+4. P1–P4 run on CPU. P5–P6 need a GPU; a T4 is enough (about 4 s per epoch at 64³).
+
+**Without the data:**
+
+* Set `MODO\_SINTETICO = True` in the notebook. It runs P0–P9 on synthetic data.
+* Or run the smoke test locally:
+
+```
+  python prueba\_humo\_sintetica.py --dir humo --grid 16 --pairs 20 --epochs 3
+  ```
+
+The step-by-step guide in Spanish is [`README\_guia\_paso\_a\_paso.md`](README_guia_paso_a_paso.md).
+
+## Reproducibility
+
+* **Seeds:** folds 42, training 1234, sampling and evaluation 0.
+* **Saved with every run:** `config.json` and `entorno.json` (library versions and GPU).
+* **Rules fixed in advance.** The exclusion rule (P3b) was fixed before the reference methods were evaluated. The code refuses to change training settings once a fold has started, and refuses to change exclusions after P4.
+* **Log.** Every step writes a timestamped log (*bitácora*) to Drive: what ran, with which settings, how long it took, and any warning or error. The log contains patient IDs and Drive paths, so it is not published.
+* **Versions.** The results come from versions 1.3.3 to 1.3.6 of the `tesina` package. These versions differ only operationally (memory handling, messages, the P3b step), not in geometry, model or metrics. The tag `v1.3.6` marks the code at the end of the run. The changelog is in `tesina/\_\_init\_\_.py`.
+* **Determinism.** B1, B2 and all metrics are deterministic for the same data. GPU training can vary slightly between runs even with fixed seeds.
+
+## Layout
+
+```
+cuaderno\_principal\_tesina.ipynb   Colab notebook, P0–P9 (published without outputs)
+tesina/                           Python package: one module per stage
+prueba\_humo\_sintetica.py          end-to-end smoke test on synthetic data
+figuras\_tesina.py                 thesis figures from the results pack
+requirements.txt
+README\_guia\_paso\_a\_paso.md        step-by-step guide (Spanish)
+results/
+  resultados\_tesina\_G64\_2026-11-25/   anonymized results pack from P8
+  anexo/trazabilidad\_368\_pacientes.csv
+```
+
+The code, comments, notebook and logs are in Spanish, like the thesis.
+
+## Branches
+
+* `main`: the thesis pipeline (this page).
+* `legacy-2024-2025`: earlier scripts, from July 2024 to October 2025. They cover file organization, PCA alignment, first voxelization and a first 3D CNN. That branch's README explains each script and why it was replaced.
+
+## Citation
+
+Gómez Cantú, D. C. (2026). *Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D: prototipo y evaluación de viabilidad* \[Tesina de licenciatura]. Instituto Tecnológico Autónomo de México.
+
+## Acknowledgements
+
+* Dr. Edgar Francisco Román Rangel (ITAM), thesis advisor.
+* The KI-Assistenz team at TH Köln, in particular Dr. María Elena Algorri and Dr. Beate Rhein.
+* AirTec Beatmungshilfen, for the anonymized data and permission to use it.
+

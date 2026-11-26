@@ -1,0 +1,22 @@
+{
+  "regla": {
+    "moldes_abiertos": true,
+    "no_pasan_a1": true,
+    "min_frente_2mm": 0.3,
+    "max_incertidumbre_mm": 3.0
+  },
+  "n_manifiesto": 367,
+  "n_excluidos": 144,
+  "n_cohorte": 223,
+  "excluidos_por_motivo": {
+    "molde abierto": 104,
+    "no pasa A1": 100
+  },
+  "cohorte_por_pliegue": {
+    "0": 42,
+    "1": 49,
+    "2": 36,
+    "3": 48,
+    "4": 48
+  }
+}

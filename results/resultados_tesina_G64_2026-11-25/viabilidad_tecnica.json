@@ -1,0 +1,39 @@
+{
+  "nota": "Tiempos de pared medidos en Colab en esta corrida. El costo económico se obtiene multiplicando las horas por una tarifa supuesta; el código no fija tarifas.",
+  "entrenamiento_C0": {
+    "pliegues_terminados": 5,
+    "horas_gpu_total": 0.312,
+    "horas_por_pliegue_mediana": 0.056,
+    "epocas_corridas_mediana": 49.0,
+    "memoria_pico_gpu_mb_max": 314.1,
+    "gpu": [
+      "Tesla T4"
+    ],
+    "parametros": 1401265,
+    "inferencia_red_s_por_paciente_mediana": 0.0063
+  },
+  "ajuste_B1_s_total": 4.14,
+  "ajuste_B2_s_total": 17.02,
+  "preprocesamiento_por_paciente_s": {
+    "mediana": 14.86,
+    "p90": 20.54,
+    "horas_total": 1.603,
+    "nota": "incluye el registro molde→rostro, que solo hace falta para entrenar y evaluar"
+  },
+  "posproceso_y_metricas_s_por_paciente_mediana": 2.72,
+  "prototipo_por_paciente_s_mediana": {
+    "n_corridas": 6,
+    "dispositivo": [
+      "cuda"
+    ],
+    "cargar_rostro_s": 0.343,
+    "orientar_y_voxelizar_s": 0.201,
+    "refinar_giro_s": 0.018,
+    "cargar_modelo_s": 1.248,
+    "inferencia_red_s": 0.012,
+    "molde_stl_s": 0.062,
+    "plantilla_stl_s": 0.171,
+    "total_s": 2.074,
+    "total_sin_cargar_modelo_s": 0.824
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "python": "3.13.16",
+  "numpy": "2.4.6",
+  "scipy": "1.16.3",
+  "sklearn": "1.6.1",
+  "skimage": "0.25.2",
+  "trimesh": "5.2.2",
+  "torch": "2.14.1+cu130",
+  "pandas": "2.2.3",
+  "gpu": "Tesla T4"
+}

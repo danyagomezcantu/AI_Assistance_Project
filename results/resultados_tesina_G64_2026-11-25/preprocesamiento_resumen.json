@@ -1,0 +1,28 @@
+{
+  "n_pacientes": 367,
+  "n_con_error": 0,
+  "arista_voxel_mm_mediana": 3.7413,
+  "arista_voxel_mm_min_max": [
+    2.5828,
+    5.0025
+  ],
+  "caja_mm_mediana": 239.44,
+  "frac_mascarilla_fuera_de_caja_mediana": 0.0,
+  "frac_mascarilla_fuera_de_caja_max": 0.19,
+  "razon_volumen_mediana": 0.9999,
+  "mascarillas_cerradas_frac": 0.7166212534059946,
+  "giros_de_signo": {
+    "none": 242,
+    "rot_z": 123,
+    "rot_x": 2
+  },
+  "segundos_por_paciente_mediana": 14.86,
+  "registro_molde_rostro": {
+    "n_registrados": 366,
+    "residuo_mediana_mm_mediana": 1.5,
+    "incertidumbre_mm_mediana": 1.1760000000000002,
+    "incertidumbre_mm_p90": 10.4205,
+    "frac_frente_a_2mm_mediana": 0.5773,
+    "n_incertidumbre_mayor_3mm": 100
+  }
+}

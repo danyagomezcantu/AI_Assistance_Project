@@ -1,0 +1,3 @@
+verificacion,n_revisados,n_pasan,mediana_astillas_quitadas,mediana_mask_watertight,mediana_frac_frente_a_3mm_sin_registro,mediana_registrado,mediana_residuo_mediana_mm,mediana_frac_frente_a_1mm,mediana_frac_frente_a_2mm,mediana_incertidumbre_mm,mediana_rotacion_grados,mediana_traslacion_mm,mediana_base_area_mm2,mediana_base_planitud_mm,mediana_grid,mediana_pitch_mm,mediana_caja_mm,mediana_volumen_ml,mediana_razon_volumen,mediana_frac_molde_fuera_de_caja,mediana_componentes_solido,mediana_vox_solido
+A1,20,15,25.5,1.0,0.0,1.0,1.3025,0.42264999999999997,0.595,0.9704999999999999,170.685,659.6,12430.2,0.0805,,,,,,,,
+A3,10,8,,1.0,,,,,,,,,,,64.0,3.591,229.85,546.4000000000001,0.999,0.0,1.0,12524.0

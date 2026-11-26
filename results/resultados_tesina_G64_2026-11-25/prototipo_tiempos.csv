@@ -1,0 +1,7 @@
+grid,dispositivo,modelo,giro,pitch_mm,cargar_rostro_s,orientar_y_voxelizar_s,refinar_giro_s,cargar_modelo_s,inferencia_red_s,molde_stl_s,plantilla_stl_s,total_s,total_sin_cargar_modelo_s,molde_vacio,molde_watertight,volumen_molde_ml,frac_columnas_contrasalida,plantilla_watertight,dice_vs_airtec
+64,cuda,pliegue 0,rot_z,3.785,0.347,0.258,2.598,3.658,1.456,0.053,0.15,8.52,4.862,0,1,469.8,0.0,1,0.9077
+64,cuda,pliegue 0,none,3.471,0.25,0.16,0.017,0.058,0.012,0.071,0.182,0.749,0.691,0,1,493.9,0.0,1,0.8926
+64,cuda,pliegue 1,none,3.7,0.353,0.203,0.018,1.378,0.012,0.053,0.168,2.185,0.807,0,1,463.8,0.0,1,0.9081
+64,cuda,pliegue 2,none,3.638,0.373,0.207,0.019,1.119,0.011,0.06,0.174,1.963,0.844,0,1,558.6,0.0008,1,0.8935
+64,cuda,pliegue 1,rot_z,4.004,0.338,0.198,0.016,0.055,0.011,0.064,0.165,0.848,0.793,0,1,631.2,0.0,1,0.8581
+64,cuda,pliegue 4,rot_z,3.484,0.297,0.183,0.017,2.221,0.014,0.076,0.253,3.061,0.841,0,1,510.8,0.0034,1,0.7638

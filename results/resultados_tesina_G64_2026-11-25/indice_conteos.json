@@ -1,0 +1,33 @@
+{
+  "totals": {
+    "patient_folders_found": 368,
+    "complete_pairs_face_and_mask": 367,
+    "face_only": 1,
+    "mask_only": 0,
+    "with_template": 0,
+    "pairs_with_template": 0,
+    "pairs_without_metadata": 367,
+    "template_but_no_mask": 0
+  },
+  "patient_folders_by_category": {
+    "complete_file_set": 366,
+    "missing_datasheet": 2
+  },
+  "complete_pairs_by_category": {
+    "complete_file_set": 365,
+    "missing_datasheet": 2
+  },
+  "cross_validation": {
+    "k": 5,
+    "seed": 42,
+    "method": "sha256(seed:pid) rank, round-robin"
+  },
+  "anomalias_por_tipo": {
+    "nested_patient_folders": 0,
+    "duplicate_kind": 0,
+    "unrecognised_filenames": 0,
+    "patient_id_mismatch": 0,
+    "walker_warnings": 0,
+    "taxonomy_disagreements": 0
+  }
+}

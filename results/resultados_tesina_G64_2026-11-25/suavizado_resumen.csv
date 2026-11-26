@@ -1,0 +1,4 @@
+method,chamfer_total,chamfer_frente,chamfer_base,hd95_total,hd95_frente,hd95_base,postproc_s
+C0,3.2433,1.8078,4.5022,9.5074,5.9717,10.3966,2.72
+C0_laplaciano,3.3369,1.952,4.5606,10.0365,6.3032,10.7936,1.727
+C0_sin_suavizado,3.2248,1.8106,4.4446,9.4431,5.9055,10.4108,2.076

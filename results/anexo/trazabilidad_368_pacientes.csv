@@ -1,0 +1,369 @@
+id_airtec,pliegue,carpeta_airtec,molde_en_zip,molde_cerrado,frente_a_2mm_pct,incertidumbre_registro_mm,motivo_exclusion,en_cohorte_223,id_tesina,C0_dice,C0_chamfer_frente_mm,C0_chamfer_total_mm
+00547,0,completo,sí,no,63.6,1.68,molde abierto,no,,,,
+00617,0,completo,sí,sí,70.3,0.7,,sí,P001,0.893,1.268,2.318
+01380,1,completo,sí,sí,57.7,0.94,,sí,P002,0.908,1.623,2.157
+01399,2,completo,sí,sí,58.8,0.76,,sí,P003,0.893,1.569,2.397
+01543,0,completo,sí,sí,34.8,6.43,no pasa A1,no,,,,
+02670,4,completo,sí,sí,36.4,8.02,no pasa A1,no,,,,
+02676,1,completo,sí,no,24.0,27.53,molde abierto; no pasa A1,no,,,,
+02708,1,completo,sí,sí,65.7,0.46,,sí,P004,0.858,1.725,3.501
+02982,4,completo,sí,sí,62.6,0.56,,sí,P005,0.764,1.834,5.424
+03390,4,completo,sí,no,63.4,0.97,molde abierto,no,,,,
+03614,0,completo,sí,no,59.7,1.62,molde abierto,no,,,,
+03676,4,completo,sí,no,33.4,5.0,molde abierto; no pasa A1,no,,,,
+03725,1,completo,sí,sí,38.5,8.87,no pasa A1,no,,,,
+03761,4,completo,sí,no,35.3,12.13,molde abierto; no pasa A1,no,,,,
+03773,1,completo,sí,sí,21.2,10.95,no pasa A1,no,,,,
+03898,2,completo,sí,no,43.2,18.46,molde abierto; no pasa A1,no,,,,
+03976,4,completo,sí,sí,53.0,0.82,,sí,P006,0.771,1.836,5.0
+04030,0,completo,sí,sí,38.3,28.63,no pasa A1,no,,,,
+04073,3,completo,sí,no,49.2,4.3,molde abierto; no pasa A1,no,,,,
+04176,0,completo,sí,sí,72.0,0.5,,sí,P007,0.779,2.729,5.992
+04358,1,completo,sí,sí,48.1,1.65,,sí,P008,0.807,2.436,4.679
+04425,1,completo,sí,sí,33.6,4.09,no pasa A1,no,,,,
+04657,0,completo,sí,no,61.3,0.86,molde abierto,no,,,,
+04730,4,completo,sí,no,25.6,17.18,molde abierto; no pasa A1,no,,,,
+04762,0,completo,sí,no,53.5,1.64,molde abierto,no,,,,
+04850,1,completo,sí,sí,60.6,0.48,,sí,P009,0.872,1.486,3.073
+04988,1,completo,sí,sí,56.8,1.11,,sí,P010,0.908,1.704,2.153
+05576,3,completo,sí,sí,56.2,1.08,,sí,P011,0.832,1.677,3.857
+05582,3,completo,sí,sí,60.4,1.25,,sí,P012,0.926,1.865,1.781
+05781,3,completo,sí,sí,53.1,2.68,,sí,P013,0.717,2.172,5.879
+05857,3,completo,sí,no,61.3,0.95,molde abierto,no,,,,
+05899,3,completo,sí,no,30.9,5.19,molde abierto; no pasa A1,no,,,,
+05913,0,completo,sí,sí,30.2,5.21,no pasa A1,no,,,,
+05982,2,completo,sí,sí,57.0,0.98,,sí,P014,0.899,1.638,2.594
+06018,4,completo,sí,sí,67.6,0.43,,sí,P015,0.797,1.412,5.398
+06080,2,completo,sí,sí,61.2,0.71,,sí,P016,0.872,2.487,2.845
+06083,1,completo,sí,no,63.8,0.56,molde abierto,no,,,,
+06257,1,completo,sí,sí,53.0,2.26,,sí,P017,0.851,2.139,3.415
+06274,2,completo,sí,sí,19.8,16.98,no pasa A1,no,,,,
+06289,0,completo,sí,no,48.0,6.67,molde abierto; no pasa A1,no,,,,
+06426,4,completo,sí,sí,66.2,0.8,,sí,P018,0.879,1.529,2.858
+06514,4,completo,sí,sí,65.4,2.38,,sí,P019,0.848,1.579,3.13
+06519,0,completo,sí,sí,55.8,0.9,,sí,P020,0.849,2.305,3.129
+06535,2,completo,sí,no,37.5,2.36,molde abierto,no,,,,
+06536,2,completo,sí,sí,56.6,1.16,,sí,P021,0.865,1.703,3.293
+06785,4,completo,sí,sí,62.0,0.65,,sí,P022,0.856,1.906,3.795
+06852,1,completo,sí,sí,57.7,0.62,,sí,P023,0.888,2.174,2.941
+06912,3,completo,sí,sí,68.8,0.42,,sí,P024,0.875,1.379,3.128
+06941,3,completo,sí,no,25.2,10.77,molde abierto; no pasa A1,no,,,,
+06945,1,completo,sí,no,55.3,1.77,molde abierto,no,,,,
+06973,1,completo,sí,sí,33.4,4.54,no pasa A1,no,,,,
+07082,1,completo,sí,sí,68.0,0.64,,sí,P025,0.922,1.288,1.902
+07134,3,completo,sí,no,68.6,0.53,molde abierto,no,,,,
+07456,1,completo,sí,sí,50.9,0.66,,sí,P026,0.848,1.929,2.827
+07492,0,completo,sí,no,38.2,12.58,molde abierto; no pasa A1,no,,,,
+07499,0,completo,sí,no,67.9,2.58,molde abierto,no,,,,
+07515,3,completo,sí,sí,62.1,0.82,,sí,P027,0.895,1.377,2.182
+07663,4,completo,sí,no,61.5,1.25,molde abierto,no,,,,
+07722,0,completo,sí,no,39.4,4.02,molde abierto; no pasa A1,no,,,,
+07750,3,completo,sí,sí,56.8,2.13,,sí,P028,0.935,1.309,1.491
+07856,1,completo,sí,sí,58.4,0.79,,sí,P029,0.894,2.254,2.572
+07858,2,completo,sí,no,43.2,5.62,molde abierto; no pasa A1,no,,,,
+07867,1,completo,sí,sí,53.6,1.98,,sí,P030,0.772,2.316,4.532
+07920,0,completo,sí,sí,73.8,0.31,,sí,P031,0.888,1.411,2.772
+07922,2,completo,sí,sí,54.5,2.39,,sí,P032,0.87,2.631,3.295
+08034,2,completo,sí,no,31.9,8.68,molde abierto; no pasa A1,no,,,,
+08122,1,completo,sí,sí,56.6,0.95,,sí,P033,0.838,1.579,3.451
+08130,0,completo,sí,no,58.2,1.11,molde abierto,no,,,,
+08254,3,completo,sí,no,55.8,0.98,molde abierto,no,,,,
+08283,0,completo,sí,sí,53.6,2.86,,sí,P034,0.831,2.406,4.156
+08302,4,completo,sí,no,62.8,4.04,molde abierto; no pasa A1,no,,,,
+08425,2,completo,sí,no,65.2,0.52,molde abierto,no,,,,
+08437,2,completo,sí,sí,27.5,12.0,no pasa A1,no,,,,
+08467,0,completo,sí,sí,71.6,0.56,,sí,P035,0.887,1.619,2.12
+08475,1,completo,sí,sí,65.4,0.74,,sí,P036,0.881,1.633,2.922
+08506,3,completo,sí,sí,39.6,2.3,,sí,P037,0.527,10.505,12.176
+08507,3,completo,sí,sí,56.0,1.11,,sí,P038,0.779,1.902,4.897
+08531,2,completo,sí,sí,33.6,14.41,no pasa A1,no,,,,
+08535,0,completo,sí,no,34.2,3.89,molde abierto; no pasa A1,no,,,,
+08539,2,completo,sí,no,55.2,1.21,molde abierto,no,,,,
+08576,0,completo,sí,sí,64.7,0.62,,sí,P039,0.063,12.333,15.658
+08646,4,completo,sí,no,62.3,0.58,molde abierto,no,,,,
+08656,3,completo,sí,no,37.1,15.42,molde abierto; no pasa A1,no,,,,
+08662,2,completo,sí,sí,37.0,18.1,no pasa A1,no,,,,
+08678,0,completo,sí,sí,68.4,0.58,,sí,P040,0.812,1.742,4.361
+08694,0,completo,sí,sí,56.5,0.8,,sí,P041,0.915,1.718,1.872
+08769,1,completo,sí,sí,63.5,0.68,,sí,P042,0.83,1.34,3.023
+08817,2,completo,sí,sí,69.5,0.54,,sí,P043,0.796,1.21,4.216
+08840,3,completo,sí,sí,70.1,0.46,,sí,P044,0.817,1.375,4.234
+08845,2,completo,sí,sí,57.2,0.91,,sí,P045,0.81,2.798,4.847
+09037,2,completo,sí,sí,72.1,0.52,,sí,P046,0.886,1.4,3.005
+09056,1,completo,sí,sí,63.3,1.7,,sí,P047,0.731,4.622,6.927
+09075,0,completo,sí,sí,68.5,1.18,,sí,P048,0.756,1.723,5.188
+09102,0,completo,sí,sí,58.7,0.84,,sí,P049,0.843,1.799,3.357
+09126,3,completo,sí,sí,60.5,1.05,,sí,P050,0.922,1.929,2.031
+09195,0,completo,sí,sí,60.2,1.29,,sí,P051,0.865,1.682,3.194
+09286,3,completo,sí,sí,67.4,0.43,,sí,P052,0.77,1.696,6.699
+09347,0,completo,sí,no,32.2,27.17,molde abierto; no pasa A1,no,,,,
+09396,2,completo,sí,sí,59.3,1.01,,sí,P053,0.878,1.942,3.066
+09449,3,completo,sí,sí,59.9,1.0,,sí,P054,0.832,1.876,4.34
+09468,3,completo,sí,sí,33.8,4.66,no pasa A1,no,,,,
+09471,3,completo,sí,sí,54.2,1.03,,sí,P055,0.903,1.997,2.248
+09511,1,completo,sí,sí,60.2,1.0,,sí,P056,0.859,1.76,3.317
+09518,1,completo,sí,no,26.1,17.35,molde abierto; no pasa A1,no,,,,
+09610,2,completo,sí,sí,50.8,1.0,,sí,P057,0.802,2.981,4.471
+09624,3,completo,sí,sí,58.6,1.6,,sí,P058,0.768,2.533,4.972
+09664,1,completo,sí,sí,69.8,0.63,,sí,P059,0.893,2.005,3.157
+09729,2,completo,sí,sí,32.3,11.97,no pasa A1,no,,,,
+09738,3,completo,sí,sí,49.4,3.7,no pasa A1,no,,,,
+09744,0,completo,sí,sí,45.8,1.46,,sí,P060,0.886,2.474,2.807
+09751,4,sin hoja de datos,sí,sí,58.8,0.75,,sí,P061,0.792,1.864,4.006
+09903,0,completo,sí,sí,56.6,1.11,,sí,P062,0.899,1.938,2.455
+09924,2,completo,sí,no,68.3,5.77,molde abierto; no pasa A1,no,,,,
+09949,0,completo,sí,sí,56.2,0.78,,sí,P063,0.794,1.858,4.368
+10076,4,completo,sí,sí,58.8,1.58,,sí,P064,0.793,2.039,4.492
+10111,3,completo,sí,sí,56.0,0.9,,sí,P065,0.829,2.343,3.997
+10172,2,completo,sí,no,32.2,3.54,molde abierto; no pasa A1,no,,,,
+10216,2,completo,sí,sí,67.0,0.53,,sí,P066,0.92,1.161,1.692
+10265,3,completo,sí,no,63.6,9.2,molde abierto; no pasa A1,no,,,,
+10267,1,completo,sí,sí,48.2,2.21,,sí,P067,0.875,2.662,3.1
+10296,0,completo,sí,sí,65.4,0.7,,sí,P068,0.82,1.462,3.909
+10323,3,completo,sí,sí,60.9,0.91,,sí,P069,0.818,1.782,4.192
+10351,4,completo,sí,sí,62.7,0.69,,sí,P070,0.822,1.531,3.762
+10354,2,completo,sí,sí,65.0,0.62,,sí,P071,0.896,1.436,2.55
+10417,2,completo,sí,sí,57.8,1.87,,sí,P072,0.836,1.976,3.4
+10419,0,completo,sí,sí,63.2,1.28,,sí,P073,0.805,1.797,4.744
+10429,2,completo,sí,sí,42.6,4.05,no pasa A1,no,,,,
+10456,1,completo,sí,sí,32.1,4.66,no pasa A1,no,,,,
+10571,1,completo,sí,sí,53.6,1.45,,sí,P074,0.873,1.945,3.52
+10597,3,completo,sí,sí,55.9,1.25,,sí,P075,0.914,1.766,2.043
+10611,0,completo,sí,sí,60.4,0.9,,sí,P076,0.896,1.585,2.646
+10640,3,completo,sí,sí,60.4,1.28,,sí,P077,0.904,1.421,2.309
+10647,1,completo,sí,sí,51.6,1.09,,sí,P078,0.848,2.324,3.558
+10755,1,completo,sí,no,26.1,31.0,molde abierto; no pasa A1,no,,,,
+10757,0,completo,sí,no,60.1,0.73,molde abierto,no,,,,
+10773,0,completo,sí,sí,71.1,0.62,,sí,P079,0.922,1.477,2.108
+10809,2,completo,sí,sí,57.9,1.38,,sí,P080,0.876,2.448,2.921
+10864,3,completo,sí,sí,58.7,1.65,,sí,P081,0.756,2.033,5.016
+10865,2,completo,sí,sí,38.6,3.1,no pasa A1,no,,,,
+10888,1,completo,sí,no,55.3,1.02,molde abierto,no,,,,
+10932,0,completo,sí,sí,64.7,1.15,,sí,P082,0.866,1.701,3.442
+10975,1,completo,sí,sí,50.8,1.66,,sí,P083,0.848,2.491,4.064
+10984,2,completo,sí,sí,41.8,4.71,no pasa A1,no,,,,
+11061,1,completo,sí,sí,63.0,0.38,,sí,P084,0.766,2.118,5.644
+11092,1,completo,sí,no,49.1,3.83,molde abierto; no pasa A1,no,,,,
+11099,1,completo,sí,sí,66.1,0.83,,sí,P085,0.906,1.226,2.064
+11101,2,completo,sí,sí,60.6,0.3,,sí,P086,0.841,2.111,3.92
+11122,3,completo,sí,no,46.2,3.82,molde abierto; no pasa A1,no,,,,
+11129,1,completo,sí,sí,62.9,0.45,,sí,P087,0.779,1.244,4.267
+11148,2,completo,sí,sí,65.0,0.59,,sí,P088,0.635,2.242,7.738
+11154,3,completo,sí,sí,54.8,1.14,,sí,P089,0.854,1.566,3.583
+11161,1,completo,sí,no,38.9,5.98,molde abierto; no pasa A1,no,,,,
+11226,4,completo,sí,sí,42.6,7.66,no pasa A1,no,,,,
+11238,1,completo,sí,sí,34.4,4.01,no pasa A1,no,,,,
+11254,4,completo,sí,sí,35.2,18.19,no pasa A1,no,,,,
+11273,2,completo,sí,no,64.7,0.62,molde abierto,no,,,,
+11289,2,completo,sí,no,34.0,22.4,molde abierto; no pasa A1,no,,,,
+11292,3,completo,sí,sí,62.4,1.41,,sí,P090,0.868,1.666,3.198
+11324,4,completo,sí,no,45.3,14.21,molde abierto; no pasa A1,no,,,,
+11337,4,completo,sí,sí,60.4,0.8,,sí,P091,0.755,1.996,5.292
+11370,0,completo,sí,no,63.2,0.62,molde abierto,no,,,,
+11374,0,completo,sí,no,47.8,48.84,molde abierto; no pasa A1,no,,,,
+11386,4,completo,sí,sí,51.6,1.22,,sí,P092,0.865,2.355,3.491
+11409,3,completo,sí,sí,36.0,4.57,no pasa A1,no,,,,
+11425,4,completo,sí,sí,62.2,0.81,,sí,P093,0.866,1.605,3.258
+11435,2,completo,sí,no,51.1,1.3,molde abierto,no,,,,
+11457,4,completo,sí,no,59.6,0.95,molde abierto,no,,,,
+11483,2,completo,sí,sí,42.2,2.85,,sí,P094,0.778,4.514,6.141
+11487,2,completo,sí,sí,55.8,1.78,,sí,P095,0.801,2.97,5.106
+11492,3,completo,sí,no,51.4,0.9,molde abierto,no,,,,
+11509,3,completo,sí,no,64.4,0.52,molde abierto,no,,,,
+11513,3,completo,sí,sí,65.0,0.6,,sí,P096,0.812,1.402,4.015
+11516,2,completo,sí,sí,29.1,4.3,no pasa A1,no,,,,
+11521,0,completo,sí,no,62.1,0.7,molde abierto,no,,,,
+11532,0,completo,sí,no,29.8,33.83,molde abierto; no pasa A1,no,,,,
+11545,1,completo,sí,sí,36.2,3.61,no pasa A1,no,,,,
+11550,0,completo,sí,sí,73.2,0.6,,sí,P097,0.9,1.63,2.124
+11580,2,completo,sí,sí,62.7,0.86,,sí,P098,0.848,1.576,3.786
+11594,1,completo,sí,sí,60.0,0.78,,sí,P099,0.746,1.661,5.414
+11613,0,completo,sí,no,44.2,2.47,molde abierto,no,,,,
+11623,4,completo,sí,sí,60.4,1.0,,sí,P100,0.924,1.638,2.017
+11628,1,completo,sí,sí,62.5,0.61,,sí,P101,0.86,1.634,3.674
+11643,4,completo,sí,sí,70.1,0.39,,sí,P102,0.893,1.369,2.378
+11673,4,completo,sí,sí,58.1,1.86,,sí,P103,0.87,2.194,3.508
+11700,1,completo,sí,sí,58.8,1.18,,sí,P104,0.845,2.012,3.237
+11707,0,completo,sí,sí,43.0,2.43,,sí,P105,0.816,5.312,4.47
+11713,2,completo,sí,sí,59.0,0.86,,sí,P106,0.892,1.854,2.52
+11716,1,completo,sí,sí,52.9,1.02,,sí,P107,0.794,2.239,4.756
+11733,0,completo,sí,sí,57.2,0.99,,sí,P108,0.894,1.681,2.14
+11742,3,completo,sí,sí,68.8,0.44,,sí,P109,0.903,1.88,2.367
+11748,0,completo,sí,no,,,molde abierto,no,,,,
+11759,3,completo,sí,no,49.8,3.69,molde abierto; no pasa A1,no,,,,
+11767,4,completo,sí,sí,59.1,1.48,,sí,P110,0.874,2.141,3.067
+11768,1,completo,sí,sí,54.9,1.8,,sí,P111,0.897,2.374,2.538
+11777,3,completo,sí,sí,60.2,0.48,,sí,P112,0.813,2.092,4.531
+11779,4,completo,sí,sí,52.2,1.01,,sí,P113,0.848,2.333,3.527
+11782,4,completo,sí,sí,56.3,1.54,,sí,P114,0.911,2.107,2.371
+11791,0,completo,sí,sí,58.2,1.04,,sí,P115,0.841,2.224,3.923
+11802,2,completo,sí,sí,62.3,0.56,,sí,P116,0.898,1.507,2.37
+11804,4,completo,sí,sí,63.9,0.59,,sí,P117,0.879,1.761,2.976
+11805,3,completo,sí,sí,65.9,0.47,,sí,P118,0.888,1.637,2.282
+11837,3,completo,sí,no,31.8,2.97,molde abierto,no,,,,
+11862,0,completo,sí,no,37.2,5.05,molde abierto; no pasa A1,no,,,,
+11867,4,completo,sí,no,55.4,0.66,molde abierto,no,,,,
+11909,4,completo,sí,sí,58.6,0.84,,sí,P119,0.88,1.808,2.843
+11950,3,completo,sí,sí,53.4,1.18,,sí,P120,0.906,1.64,2.307
+11982,4,completo,sí,sí,51.7,1.15,,sí,P121,0.853,2.204,3.736
+12010,2,completo,sí,no,31.0,3.44,molde abierto; no pasa A1,no,,,,
+12014,2,completo,sí,no,34.8,8.9,molde abierto; no pasa A1,no,,,,
+12085,2,completo,sí,sí,67.2,1.02,,sí,P122,0.684,3.807,6.48
+12094,2,completo,sí,no,31.1,22.5,molde abierto; no pasa A1,no,,,,
+12149,3,completo,sí,sí,65.2,0.58,,sí,P123,0.821,2.115,4.898
+12162,1,completo,sí,sí,27.2,9.44,no pasa A1,no,,,,
+12164,2,completo,sí,no,57.2,9.85,molde abierto; no pasa A1,no,,,,
+12167,1,completo,sí,no,28.6,3.55,molde abierto; no pasa A1,no,,,,
+12177,4,completo,sí,sí,68.9,0.66,,sí,P124,0.886,1.832,2.371
+12180,1,completo,sí,sí,66.0,0.74,,sí,P125,0.798,2.022,4.784
+12183,1,completo,sí,sí,56.6,0.7,,sí,P126,0.909,1.732,2.215
+12184,3,completo,sí,no,51.9,5.38,molde abierto; no pasa A1,no,,,,
+12196,1,completo,sí,no,46.6,4.14,molde abierto; no pasa A1,no,,,,
+12198,4,completo,sí,no,44.7,16.02,molde abierto; no pasa A1,no,,,,
+12204,0,completo,sí,sí,50.9,1.54,,sí,P127,0.918,1.85,2.057
+12209,0,completo,sí,no,62.2,1.65,molde abierto,no,,,,
+12212,1,completo,sí,no,35.8,2.71,molde abierto,no,,,,
+12218,4,completo,sí,no,25.7,31.79,molde abierto; no pasa A1,no,,,,
+12219,1,completo,sí,sí,40.2,2.79,,sí,P128,0.687,3.581,6.486
+12225,4,completo,sí,no,59.2,2.47,molde abierto,no,,,,
+12228,1,completo,sí,no,66.4,5.93,molde abierto; no pasa A1,no,,,,
+12231,2,completo,sí,sí,30.9,9.77,no pasa A1,no,,,,
+12236,0,completo,sí,no,44.4,10.03,molde abierto; no pasa A1,no,,,,
+12238,1,completo,sí,sí,72.8,0.59,,sí,P129,0.828,1.244,3.659
+12247,4,completo,sí,no,31.7,22.92,molde abierto; no pasa A1,no,,,,
+12249,3,completo,sí,no,40.2,31.14,molde abierto; no pasa A1,no,,,,
+12252,1,completo,sí,sí,30.6,1.83,,sí,P130,0.714,6.69,8.133
+12259,2,completo,sí,no,50.6,8.04,molde abierto; no pasa A1,no,,,,
+12261,1,completo,sí,sí,68.1,0.56,,sí,P131,0.854,1.537,3.65
+12262,0,completo,sí,sí,36.8,3.77,no pasa A1,no,,,,
+12263,2,completo,sí,sí,63.7,2.03,,sí,P132,0.861,1.585,2.793
+12265,3,completo,sí,no,43.0,10.07,molde abierto; no pasa A1,no,,,,
+12280,3,completo,sí,sí,60.7,0.71,,sí,P133,0.743,3.743,6.321
+12283,1,completo,sí,sí,62.3,1.11,,sí,P134,0.87,2.211,3.624
+12284,1,completo,sí,sí,58.1,0.65,,sí,P135,0.904,1.536,2.198
+12287,0,completo,sí,no,57.8,0.97,molde abierto,no,,,,
+12290,2,completo,sí,no,26.3,17.22,molde abierto; no pasa A1,no,,,,
+12294,3,completo,sí,no,53.2,4.36,molde abierto; no pasa A1,no,,,,
+12302,2,completo,sí,no,51.6,3.46,molde abierto; no pasa A1,no,,,,
+12304,4,completo,sí,no,30.6,19.85,molde abierto; no pasa A1,no,,,,
+12306,3,completo,sí,sí,50.7,3.53,no pasa A1,no,,,,
+12311,3,completo,sí,sí,47.1,8.99,no pasa A1,no,,,,
+12320,4,completo,sí,sí,58.6,0.92,,sí,P136,0.785,1.949,5.571
+12330,0,completo,sí,sí,49.6,1.32,,sí,P137,0.843,2.465,3.602
+12335,1,completo,sí,sí,67.3,0.61,,sí,P138,0.868,1.575,3.349
+12338,0,completo,sí,sí,60.2,0.67,,sí,P139,0.873,1.974,3.001
+12345,4,completo,sí,no,31.5,4.97,molde abierto; no pasa A1,no,,,,
+12353,0,completo,sí,sí,62.4,1.52,,sí,P140,0.853,1.721,3.501
+12375,3,completo,sí,sí,57.3,1.0,,sí,P141,0.908,1.654,2.303
+12380,3,completo,sí,sí,67.2,0.72,,sí,P142,0.85,1.29,3.265
+12385,4,completo,sí,sí,55.1,0.97,,sí,P143,0.843,2.119,3.527
+12391,2,completo,sí,sí,62.6,2.37,,sí,P144,0.874,1.909,2.617
+12395,3,completo,sí,sí,71.6,0.26,,sí,P145,0.86,1.386,3.759
+12406,2,completo,sí,sí,34.5,4.86,no pasa A1,no,,,,
+12411,4,completo,sí,sí,64.1,4.52,no pasa A1,no,,,,
+12416,0,completo,sí,sí,56.5,0.93,,sí,P146,0.898,1.594,2.194
+12424,4,completo,sí,no,63.8,1.54,molde abierto,no,,,,
+12435,2,completo,sí,sí,63.4,0.4,,sí,P147,0.889,1.454,2.705
+12437,4,completo,sí,sí,54.8,0.86,,sí,P148,0.817,1.721,3.505
+12440,0,completo,sí,sí,64.5,0.77,,sí,P149,0.872,1.81,2.639
+12441,3,sin hoja de datos,sí,sí,59.1,1.06,,sí,P150,0.937,1.561,1.668
+12443,1,completo,sí,sí,56.2,1.16,,sí,P151,0.879,1.355,2.754
+12450,4,completo,sí,sí,48.6,2.51,,sí,P152,0.708,2.37,6.803
+12456,4,completo,sí,sí,64.6,0.75,,sí,P153,0.88,1.603,2.805
+12457,2,completo,sí,sí,68.8,0.46,,sí,P154,0.872,1.43,3.208
+12466,1,completo,sí,sí,41.9,9.19,no pasa A1,no,,,,
+12471,0,completo,sí,no,54.5,1.11,molde abierto,no,,,,
+12473,2,completo,sí,sí,51.7,9.72,no pasa A1,no,,,,
+12476,1,completo,sí,sí,59.0,0.82,,sí,P155,0.859,2.017,3.103
+12489,0,completo,sí,sí,56.8,1.66,,sí,P156,0.881,2.124,2.872
+12505,3,completo,sí,sí,67.2,1.57,,sí,P157,0.908,1.623,2.156
+12514,0,completo,sí,sí,59.0,0.85,,sí,P158,0.849,1.897,3.509
+12519,4,completo,sí,sí,74.9,0.34,,sí,P159,0.891,1.19,2.3
+12520,1,completo,sí,sí,70.4,0.53,,sí,P160,0.905,1.369,2.208
+12524,4,completo,sí,sí,69.1,0.56,,sí,P161,0.913,1.649,2.211
+12525,1,completo,sí,sí,55.1,1.31,,sí,P162,0.785,2.14,4.94
+12535,0,completo,sí,sí,60.2,1.02,,sí,P163,0.897,1.936,2.582
+12539,3,completo,sí,sí,56.7,1.31,,sí,P164,0.852,1.994,3.428
+12544,2,completo,sí,sí,60.5,0.94,,sí,P165,0.822,1.844,4.314
+12551,4,completo,sí,sí,49.8,1.9,,sí,P166,0.89,2.022,2.673
+12555,3,completo,sí,sí,60.9,1.14,,sí,P167,0.702,4.116,8.038
+12557,0,completo,sí,sí,60.6,1.38,,sí,P168,0.815,2.748,4.477
+12571,0,completo,sí,sí,56.7,1.48,,sí,P169,0.832,1.848,3.922
+12572,3,completo,sí,sí,59.6,0.7,,sí,P170,0.895,1.443,2.383
+12576,2,completo,sí,sí,63.6,1.1,,sí,P171,0.858,1.507,3.883
+12592,1,completo,sí,no,67.2,1.26,molde abierto,no,,,,
+12593,1,completo,sí,sí,64.0,1.01,,sí,P172,0.888,1.742,2.881
+12595,0,completo,sí,sí,55.7,1.09,,sí,P173,0.774,2.304,5.259
+12597,3,completo,sí,sí,63.1,1.54,,sí,P174,0.906,1.586,2.307
+12598,4,completo,sí,sí,62.6,0.64,,sí,P175,0.92,1.567,2.155
+12605,2,completo,sí,sí,64.4,0.39,,sí,P176,0.894,1.56,2.448
+12612,2,completo,sí,sí,43.3,13.44,no pasa A1,no,,,,
+12614,0,completo,sí,sí,32.9,6.65,no pasa A1,no,,,,
+12626,1,completo,sí,sí,62.0,0.74,,sí,P177,0.914,1.634,2.06
+12630,4,completo,sí,sí,58.6,0.91,,sí,P178,0.86,1.808,3.495
+12635,4,completo,sí,sí,59.7,0.87,,sí,P179,0.92,1.47,1.958
+12638,4,completo,sí,sí,64.3,0.96,,sí,P180,0.895,1.7,2.856
+12645,4,completo,sí,sí,55.4,1.19,,sí,P181,0.814,2.762,4.676
+12648,2,completo,sí,sí,31.5,6.82,no pasa A1,no,,,,
+12663,4,completo,sí,no,49.2,7.38,molde abierto; no pasa A1,no,,,,
+12666,2,completo,sí,no,52.1,5.13,molde abierto; no pasa A1,no,,,,
+12685,4,completo,sí,sí,69.6,0.62,,sí,P182,0.909,1.678,2.182
+12689,0,completo,sí,sí,52.5,0.9,,sí,P183,0.883,2.53,2.75
+12691,2,completo,sí,sí,66.5,1.0,,sí,P184,0.763,2.782,5.426
+12696,2,completo,sí,sí,63.3,0.67,,sí,P185,0.879,1.765,2.837
+12708,4,completo,sí,sí,57.5,1.18,,sí,P186,0.858,2.024,3.243
+12720,4,completo,sí,sí,66.0,0.7,,sí,P187,0.848,1.661,3.646
+12721,0,completo,sí,no,68.8,1.08,molde abierto,no,,,,
+12725,2,completo,sí,sí,54.7,1.71,,sí,P188,0.821,1.632,3.801
+12727,,completo,dañado (no se pudo extraer),,,,molde dañado en el ZIP,no,,,,
+12729,0,completo,sí,sí,49.9,3.03,no pasa A1,no,,,,
+12741,1,completo,sí,sí,47.7,7.57,no pasa A1,no,,,,
+12780,3,completo,sí,sí,67.4,0.86,,sí,P189,0.804,1.907,3.936
+12795,2,completo,sí,no,57.7,11.21,molde abierto; no pasa A1,no,,,,
+12836,4,completo,sí,sí,55.5,1.3,,sí,P190,0.784,1.962,4.938
+12847,3,completo,sí,sí,60.0,1.06,,sí,P191,0.876,1.683,2.955
+12866,0,completo,sí,sí,63.6,1.18,,sí,P192,0.915,1.397,1.716
+12876,3,completo,sí,sí,62.3,0.83,,sí,P193,0.817,1.72,3.827
+12896,4,completo,sí,sí,50.0,0.96,,sí,P194,0.811,2.398,4.176
+12899,3,completo,sí,sí,59.3,1.23,,sí,P195,0.896,1.976,2.076
+12911,0,completo,sí,sí,56.8,1.84,,sí,P196,0.879,1.781,2.956
+12914,3,completo,sí,sí,61.8,0.88,,sí,P197,0.908,1.272,2.042
+12917,1,completo,sí,sí,63.7,0.71,,sí,P198,0.842,1.915,3.96
+12919,0,completo,sí,sí,65.1,0.92,,sí,P199,0.886,1.901,2.777
+12949,3,completo,sí,no,62.1,1.45,molde abierto,no,,,,
+12954,4,completo,sí,sí,70.3,0.36,,sí,P200,0.922,1.308,1.978
+12957,2,completo,sí,no,32.6,24.54,molde abierto; no pasa A1,no,,,,
+12968,4,completo,sí,sí,58.0,1.26,,sí,P201,0.866,1.843,3.04
+12975,3,completo,sí,sí,70.4,0.38,,sí,P202,0.851,1.473,3.303
+12977,3,completo,sí,sí,64.0,0.93,,sí,P203,0.819,1.932,4.552
+12981,0,completo,sí,no,53.4,11.94,molde abierto; no pasa A1,no,,,,
+12985,4,completo,sí,sí,57.7,1.0,,sí,P204,0.895,1.739,2.379
+12988,4,completo,sí,no,41.0,2.2,molde abierto,no,,,,
+12994,2,completo,sí,no,50.4,2.93,molde abierto,no,,,,
+13001,4,completo,sí,sí,66.0,0.43,,sí,P205,0.944,1.486,1.518
+13014,1,completo,sí,sí,51.3,1.16,,sí,P206,0.775,2.888,4.988
+13019,0,completo,sí,no,58.0,1.29,molde abierto,no,,,,
+13020,3,completo,sí,sí,61.5,0.64,,sí,P207,0.877,1.663,3.222
+13028,2,completo,sí,sí,61.2,0.97,,sí,P208,0.887,1.815,2.741
+13031,4,completo,sí,sí,52.2,1.52,,sí,P209,0.911,2.037,2.184
+13037,4,completo,sí,sí,70.2,0.48,,sí,P210,0.914,1.456,2.109
+13042,0,completo,sí,sí,74.6,0.27,,sí,P211,0.898,1.761,2.722
+13043,3,completo,sí,sí,64.0,0.74,,sí,P212,0.909,1.218,2.127
+13045,3,completo,sí,sí,62.1,0.77,,sí,P213,0.928,1.252,1.732
+13059,3,completo,sí,sí,34.2,16.08,no pasa A1,no,,,,
+13067,2,completo,sí,sí,61.6,1.34,,sí,P214,0.676,5.199,7.064
+13070,3,completo,sí,sí,34.6,2.92,,sí,P215,0.792,3.802,4.468
+13077,4,completo,sí,sí,53.4,0.94,,sí,P216,0.889,1.886,2.559
+13110,4,completo,sí,no,60.6,5.83,molde abierto; no pasa A1,no,,,,
+13130,2,completo,sí,sí,55.1,0.94,,sí,P217,0.852,1.91,3.479
+13139,2,completo,sí,sí,60.4,0.86,,sí,P218,0.878,1.581,3.13
+13145,4,completo,sí,sí,64.5,0.57,,sí,P219,0.925,1.542,1.798
+13146,4,completo,sí,no,67.8,0.51,molde abierto,no,,,,
+13150,1,completo,sí,no,66.8,14.19,molde abierto; no pasa A1,no,,,,
+13169,2,completo,sí,no,52.6,965.61,molde abierto; no pasa A1,no,,,,
+13174,1,completo,sí,sí,56.0,1.43,,sí,P220,0.711,4.854,6.992
+13175,1,completo,sí,sí,65.4,0.69,,sí,P221,0.896,1.628,2.422
+13190,3,completo,sí,no,22.1,27.6,molde abierto; no pasa A1,no,,,,
+13194,1,completo,sí,no,58.9,0.83,molde abierto,no,,,,
+13200,0,completo,sí,sí,60.2,0.66,,sí,P222,0.833,3.43,4.426
+13256,1,completo,sí,sí,57.1,0.43,,sí,P223,0.8,1.967,4.209

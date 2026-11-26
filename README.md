@@ -2,7 +2,7 @@
 
 This repository holds the code and anonymized results of my undergraduate thesis (*tesina*, Computer Engineering, ITAM, 2026):
 
-> **Deep-learning design of moulds for custom CPAP masks from 3D facial scans: prototype and viability evaluation**
+> **Deep-learning design of moulds for custom CPAP masks from 3D facial scans**
 > (Spanish title: *Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D*)
 
 The method works in two stages. A 3D U-Net predicts the positive mould of a custom mask from the patient's face scan. That mould is then turned into a printable template.
@@ -50,7 +50,7 @@ The full tables, per-patient metrics, statistics, configuration and environment 
 
 ### Cohort
 
-The file repository has 368 patients with a face scan and a mould. One mould file is damaged in the archive, which leaves 367 pairs. Of those, 263 moulds are closed meshes, and 223 of them pass the registration check A1.
+The file repository has 368 patients with a face scan and a mould. One mould file is damaged in the working copy of the archive, which leaves 367 pairs. Of those, 263 moulds are closed meshes, and 223 of them pass the registration check A1.
 
 ### Patient IDs
 
@@ -110,7 +110,7 @@ The code, comments, notebook and logs are in Spanish, like the thesis.
 
 ## Citation
 
-Gómez Cantú, D. C. (2026). *Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D: prototipo y evaluación de viabilidad* [Tesina de licenciatura]. Instituto Tecnológico Autónomo de México.
+Gómez Cantú, D. C. (2026). *Diseño de moldes para mascarillas CPAP personalizadas con aprendizaje profundo a partir de escaneos faciales 3D* [Tesina de licenciatura]. Instituto Tecnológico Autónomo de México.
 
 ## Acknowledgements
 

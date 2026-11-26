@@ -1,58 +1,54 @@
-# ZIM - KI Assistenz Project
+# Legacy scripts (July 2024 – October 2025)
 
-## AI-Based Assistance System for Manufacturing Custom Ventilation Masks
+This branch keeps the scripts I wrote before the final thesis pipeline (branch `main`, tag `v1.3.6`). They are kept to show how the work evolved. **None of them produced the results reported in the thesis.**
 
-This repository contains the code and documentation for the ZIM - KI Assistenz project, a collaborative initiative between the University of Applied Sciences Cologne (TH Köln) and local SMEs in North Rhine-Westphalia (NRW). The project aims to modernize and optimize the manufacturing process of custom-made ventilation masks using artificial intelligence (AI) and advanced technologies. The primary goal is to reduce production time and costs while maintaining the unique customization required for each mask.
+The branch was created in November 2026 from the old `main`, so the commits from July 2024 to April 2025 keep their original dates. The folders whose names start with a date were added in November 2026. Their commit messages give the approximate date of each script, taken from the files' last-modified dates. The code in these folders is unchanged; where I edited a comment, the commit message says so.
 
-## Key Objectives
-- Develop an AI-based assistance and feedback system for the production of custom ventilation masks.
-- Integrate AI and Big Data to automate feature extraction from 3D scans.
-- Improve efficiency and reduce costs in the manufacturing process without disrupting existing workflows.
+## Contents
 
-## Methodology
+| Path | Approx. date | What it does |
+|---|---|---|
+| `Demo/` | Jul–Aug 2024 (original commits) | Aligns a face scan with PCA: the first principal component of the mesh vertices is rotated onto the Y axis, and the bounding-box centre is moved to the origin. It then renames files from `ID.MM.YY.stl` to `NNNN_ID_MM_YY.stl` and sorts them into `YY.MM` folders. It automated two steps we did by hand in CloudCompare ("Bounding box P.C.A. fit" and "Move bounding box center to origin"). |
+| `2024-10_repository_organization/` | Oct 2024 | First organization of the AirTec deliveries into one file repository. |
+| `renaming_script.py` | Mar 2025 (committed Apr 2025) | Renames AirTec's export names to the repository convention: `NNNNN_g.stl` → `NNNNN_mask.stl`, `NNNNN.MM.YY.stl` → `NNNNN_face_scan.stl`, `NNNNN.MM.YYa.stl` → `NNNNN_template.stl`, `NNNNN.png` → `NNNNN_datasheet.png`. |
+| `reporting_script.py` | Mar 2025 (committed Apr 2025) | Counts patient IDs per category and file type in the file repository (`1. Training`, `2. Testing`, `3. Outliers`, `4. Unterkiefer Files`), merges the Unterkiefer spreadsheets and prints the ID lists as LaTeX tables. |
+| `new_files_script.py` | Apr 2025 | Ingests a new delivery. It unzips it into `Processing/`, renames the files with `renaming_script.py`, flattens subfolders (adding `_additional` on name collisions) and groups the files into one folder per ID. |
+| `2025-08_voxelization/` | Aug–Sep 2025 | Extends `Demo/`: PCA alignment and centring, then voxelization at a fixed 1.5 mm pitch, hole filling and export of the voxel mesh. |
+| `2025-09_first_3d_unet/` | Sep 2025 | First learning pipeline: preprocessing of face–mask pairs into voxel grids, a small 3D encoder–decoder with two skip connections, training and inference. |
+| `2025-10_copy_faces_and_masks/` | Oct 2025 | Copies every `*_face_scan.stl` and `*_mask.stl` from `1. Training/complete_file_set` into `data/raw/` and writes a CSV report. |
 
-### Data Preparation and Normalization
+### `2024-10_repository_organization/`
 
-#### Tool Familiarization
-- **Cloud Compare**: Download and use Cloud Compare for managing point cloud files.
-- **OpenCV**: Utilize facial recognition libraries in OpenCV, focusing on detecting facial profiles and specific features like the nose.
+| File | Approx. date | What it does |
+|---|---|---|
+| `file_renaming_script.py` | 17 Oct 2024 | First version of the renaming rules. It copies renamed files from `Initial-Database` to `File-Database`. Files without a five-digit ID, or with an unknown STL name, are moved (not copied) to `unresolved/`. |
+| `data_editing_script.py` | 18 Oct 2024 | Lists the IDs that have all four file types. It also defines functions that swap the labels `mask` and `template` through a temporary `maskaux` name. Those functions were never run: the labels in the repository come from `file_renaming_script.py` (`_g.stl` → mask, `a.stl` → template). |
+| `database_organizing_script.py` | 18 Oct 2024 | The first, disabled part sorts each patient into one of 15 categories by which files exist. It then moves the categories into `Training` (complete file set, missing datasheet), `Testing` (missing mask, missing template, only face and mask) and `Outliers` (everything else). The part that runs only prints the IDs per category. |
+| `repeated_files_script.py` | 18 Oct 2024 | Reports files that share a name, ignoring the extension. |
+| `organizing.py` | 24 Oct 2024 | Moves renamed scans into category folders, using ID lists written into the script (a snapshot of October 2024). |
 
-#### Facial Region Delimitation
-- Delimit the facial region from the nose to the chin (the anatomical boundary) and use this to scale facial masks appropriately.
+## How this connects to the thesis pipeline
 
-### Handling Point Clouds
+- The repository layout and file names from these scripts (`1. Training/complete_file_set`, `missing_datasheet`, `NNNNN_face_scan.stl`, `NNNNN_mask.stl`) are what the indexer of the final pipeline (P1) reads.
+- `copy_faces_and_masks.py` became step P0.3 (copy only faces and moulds to local disk) and P1 (pair index).
+- `Demo/` and `2025-08_voxelization/` became the orientation and voxelization of P3.
+- `2025-09_first_3d_unet/` became P3, P5–P6 (3D U-Net) and P9 (face → mould prototype).
 
-#### Point Cloud Management
-- Work with both dense (high-resolution) and light (low-resolution) point clouds.
-- Use the octree-based method to divide the 3D space into small cubes and normalize the scan coordinates to determine occupied cubes.
+## Known issues (documented in November 2026)
 
-#### Scale Adjustment and Normalization
-- Manipulate scales and adjust dimensions using real-world data, applying PCA to identify the longest axis for alignment.
+These problems are why the final pipeline was rebuilt rather than extended. Each item names what replaced it.
 
-### Algorithm Development
-
-#### Feature Detection and Delimitation
-- Develop algorithms to detect and delimit facial features.
-- Implement techniques to handle and normalize point clouds using octrees.
-
-#### Scan Alignment
-- Align facial scans based on PCA and the overall height of the face.
-- Propose aligning specifically the regions covered by the mask (nasal, perioral, and chin areas) using the nasolabial angle and mapping points of nasal wings and mouth corners to create a subnasal-perioral trapezoid.
-
-## Technical Concepts and Definitions
-
-- **ZIM (Zentrales Innovationsprogramm Mittelstand)**: A funding program by the German government to support SMEs in innovation.
-- **Artificial Intelligence (AI)**: The simulation of human intelligence in machines that are programmed to think and learn.
-- **Neural Networks**: A set of algorithms modeled after the human brain, designed to recognize patterns and interpret data.
-- **Data Normalization**: The process of organizing data to meet certain standards and formats, making it suitable for analysis by neural networks.
-- **Point Cloud**: A collection of data points in space, often produced by 3D scanners, representing the external surface of an object.
-- **Cloud Compare**: An open-source software for 3D point cloud and mesh processing.
-- **OpenCV**: An open-source computer vision and machine learning software library.
-- **Octree**: A tree structure used to partition a three-dimensional space by recursively subdividing it into eight octants.
-- **Principal Component Analysis (PCA)**: A statistical technique used to emphasize variation and bring out strong patterns in a dataset, often used to reduce the dimensionality of data.
-- **Nasolabial Angle**: The angle formed between the nose and the upper lip, significant in facial feature alignment.
-- **Industry 4.0**: The ongoing automation of traditional manufacturing and industrial practices using modern smart technology.
-
-## References
-- TH Köln. (n.d.). KI-Assistenz – Assistenz- und Feedbacksystem auf Basis von Big Data und künstlicher Intelligenz zur Vorbereitung des Fertigungsprozesses von individuellen Beatmungsmasken auf Fertigung 4.0. Retrieved from: https://www.th-koeln.de/anlagen-energie-und-maschinensysteme/ki-assistenz_110308.php
-- AirTec Beatmungshilfen GmbH & Co. KG. (n.d.). Willkommen bei AirTec Beatmungshilfen GmbH & Co. KG. Retrieved from: https://airtec-beatmungshilfen.de/
+1. **The `*_mask.stl` files are not in the face's coordinate frame.** They are solid positive moulds. In a 20-patient check, they were rotated about 171° and shifted about 660 mm from the face. `2025-08_voxelization/` aligns face and mask separately, each with its own PCA. `2025-09_first_3d_unet/` applies the face's transform to the mask. Neither puts the pair in a common frame. *Final pipeline:* rigid ICP registration of the mould to the face, checked by test A1.
+2. **PCA sign ambiguity.** The direction of each principal axis is arbitrary, so an aligned face can come out turned 180°. *Final pipeline:* an anatomical orientation rule plus a sign refinement against the cohort (125 of 367 faces were turned).
+3. **The commit message of 23 Jul 2024 says "PCA on the bounding box … longest axis".** The code actually runs PCA on the mesh vertices. Its first component is the direction of largest variance, which is not always the longest side. Old commit messages are left as they are.
+4. **No shared voxel grid.** `mesh.voxelized(pitch)` builds each grid from that mesh's own bounds, so the face and mask arrays have different shapes and origins. *Final pipeline:* one fixed 64³ grid per patient (the face box × 1.15), shared by face and mould.
+5. **`fill()` does not close open surfaces.** It fills enclosed cavities only, so an open scan stays a thin shell. *Final pipeline:* solid occupancy by ray parity for closed moulds. Open moulds (104 of 367) are excluded.
+6. **Model selection on the test split.** `train.py` keeps the checkpoint with the best test Dice, which makes the test score optimistic. *Final pipeline:* 5-fold cross-validation with an inner validation split; each patient is tested once.
+7. **`infer.py` returns the mould at the wrong scale and position.** The marching-cubes vertices are in voxel indices and are never multiplied by the pitch or shifted by the grid origin (which was not saved).
+8. **Calls that do not exist in trimesh 5.x:** `VoxelGrid.to_mesh`, `VoxelGrid.dilate` and `Trimesh.remove_degenerate_faces` (`2025-08_voxelization/`, `2025-09_first_3d_unet/`).
+9. **`rotation_matrix_from_vectors` breaks for parallel or opposite vectors.** It divides by zero; the 2025 version returns the identity for opposite vectors. This is unlikely with real scans. The function follows a Stack Overflow answer (<https://stackoverflow.com/a/59204638>).
+10. **`new_files_script.py`: `merge_to_root` never finishes** when a third file has the same name, because `name_additional.ext` is retried forever.
+11. **`reporting_script.py`: `map_folders` resets a category** if the same category name appears under two top-level folders, so the earlier IDs would be lost. With the current layout, categories do not repeat.
+12. **`2025-08_voxelization/main.py`** defines `run_batch()` but never calls it, and mixes `legacy.` and plain imports.
+13. **The renaming rules accept five-digit IDs only**, while grouping accepts five or six digits.
+14. Paths are hard-coded Windows paths.

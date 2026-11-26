@@ -401,7 +401,7 @@ def paso_prueba_humo(cfg: Config, n_pacientes: int = 40) -> Path:
 
 
 def paso_entrenamiento(cfg: Config, pliegues="pendientes", max_pliegues: int | None = None) -> list[dict]:
-    with paso("P6 entrenamiento", "si es 'CUDA out of memory', usa G = 32 (ver guía)"):
+    with paso("P6 entrenamiento", "si es 'CUDA out of memory', usa G = 32 (ver README)"):
         folds = train.pending_folds(cfg) if pliegues == "pendientes" else list(pliegues)
         if max_pliegues:
             folds = folds[:max_pliegues]

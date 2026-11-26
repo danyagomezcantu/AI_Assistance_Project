@@ -1,0 +1,24 @@
+# Never commit patient data or anything derived from it.
+*.stl
+*.STL
+*.ply
+*.obj
+*.npy
+*.npz
+*.pt
+*.zip
+manifest.csv
+pretrain_faces.csv
+template_validation.csv
+index_report.json
+index_out/
+trabajo/
+registros/
+bitacora/
+verificaciones/
+_sintetico_local/
+
+# Python and editor files
+__pycache__/
+.ipynb_checkpoints/
+.idea/
